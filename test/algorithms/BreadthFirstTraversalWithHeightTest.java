@@ -1,0 +1,50 @@
+package algorithms;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+import java.util.List;
+
+import static org.junit.Assert.*;
+
+/**
+ * Created by rkarnati on 4/15/17.
+ */
+public class BreadthFirstTraversalWithHeightTest {
+
+    TreeNode root = new TreeNode(1);
+    TreeNode left;
+    TreeNode right;
+
+    @Before
+    public void setUp() {
+        left = new TreeNode(2);
+        right = new TreeNode(3);
+        root.left = left;
+        root.right = right;
+
+        left = new TreeNode(4);
+        right = new TreeNode(5);
+        root.left.left = left;
+        root.left.right = right;
+
+        left = new TreeNode(6);
+        right = new TreeNode(7);
+        root.right.left = left;
+        root.right.right = right;
+
+        left = new TreeNode(8);
+        root.right.left.left = left;
+
+    }
+
+    @Test
+    public void BFTraversal() throws Exception {
+
+        BreadthFirstTraversalWithHeight bftWithHeight = new BreadthFirstTraversalWithHeight();
+        List<Integer> bft = bftWithHeight.BFTraversal(root);
+        Assert.assertEquals(bft.size(), 8 );
+    }
+
+}
