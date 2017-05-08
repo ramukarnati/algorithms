@@ -14,69 +14,48 @@ public class ArrayBalancedPartition {
             totalSum += a[i];
         }
         return getMinimumSum(a, a.length, totalSum, currSum);
-
-
     }
 
-    public int getMinimumSum(int[]a, int length, int totalSum, int currentSum) {
+    private int getMinimumSum(int[]a, int length, int totalSum, int currentSum) {
         if (length == 0) {
             return Math.abs((totalSum-currentSum) - currentSum);
         }
          return Math.min(getMinimumSum(a, length-1, totalSum, currentSum),
                  getMinimumSum(a, length-1,totalSum, currentSum+a[length-1]));
-
     }
 
-
     public int findMinNonRecursive (int[] a){ // {6, 1, 5, 11}
-        int max1 = 0;
-        int max2 = 0;
-        int counter = 0;
-
+        int min = 0;
         int totalSum = 0;
         for (int i =0;i<a.length;i++) {
             totalSum += a[i];
         }
         boolean[] aSum = new boolean[totalSum+1];
-        //aSum[i] is true if there is a set in given array that adds up to value i
+        //aSum[i] is true if there is a set in given array that adds up to value i.
         aSum[0] = true;
         for (int i = 0;i<a.length;i++){
             for (int j = aSum.length-a[i]; j >= 0; j--) {
-                if (aSum[j]) {
-                    aSum[j+a[i]] = true;
-                }
-
+                if (aSum[j]) aSum[j + a[i]] = true;
             }
         }
 
-        for (int i =aSum.length-1;i>=0;i--) {
-
-            if (aSum[i]) {
-                if (counter ==0) {
-                    max1 = i;
-                    counter = 1;
-                } else {
-                    max2 = i;
-                    break;
-                }
-            }
+        for (int i =aSum.length-2;i>=0;i--) {
+            if (aSum[i]) min = aSum.length - i;
         }
-        return max1 - max2;
+        return min;
 
     }
 
     public boolean findIfSubsetWithSum(int[] a, int sum) {
         if (sum == 0) {
-            return false;
+            return true;
         }
         return findSubSet(a, a.length, sum);
 
     }
     private boolean findSubSet(int[]a, int length, int sum) {
         if (sum == 0) return true;
-        if (length == 0 && sum > 0){
-            return false;
-        }
+        if (length == 0 && sum > 0) return false;
         if (sum < 0 && length != 0) return true;
 
         return findSubSet(a, length-1, sum-a[length-1]) ||  findSubSet(a, length-1, sum);

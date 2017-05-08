@@ -8,8 +8,6 @@ import org.junit.runners.JUnit4;
 
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by rkarnati on 4/13/17.
  */
@@ -45,6 +43,12 @@ public class TreeFindAllPathsTest {
         List<List<Integer>> allPaths =  treePaths.findPaths(root);
         Assert.assertTrue(allPaths!=null);
 
+    }
+    @Test
+    public void printAllPaths() throws  Exception {
+        TreeFindAllPaths treePaths = new TreeFindAllPaths();
+        List<List<Integer>> allPaths =  treePaths.printAllPaths(root);
+        Assert.assertTrue(allPaths.size()==4);
     }
 
 }

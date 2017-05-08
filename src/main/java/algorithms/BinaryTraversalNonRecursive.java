@@ -1,7 +1,5 @@
 package algorithms;
 
-import apple.laf.JRSUIUtils;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -10,7 +8,6 @@ import java.util.Stack;
  * Created by rkarnati on 4/11/17.
  */
 public class BinaryTraversalNonRecursive {
-
 
     public List<Integer> inOrderTraversal(TreeNode root){
         List<Integer> inOrder = new ArrayList<Integer>();
@@ -32,7 +29,6 @@ public class BinaryTraversalNonRecursive {
     public List<Integer> preOrderTraversal(TreeNode root) {
         List<Integer> preOrder = new ArrayList<Integer>();
         if (root == null) return preOrder;
-
         Stack<TreeNode> preStack = new Stack<TreeNode>();
         TreeNode current = root;
         preStack.push(current);
@@ -41,13 +37,9 @@ public class BinaryTraversalNonRecursive {
             preOrder.add(current.val);
             if (current.right != null) preStack.push(current.right);
             if (current.left != null) preStack.push(current.left);
-
         }
-
-
         return preOrder;
     }
-
 
     public List<Integer> postOrderTraversal(TreeNode root) {
 

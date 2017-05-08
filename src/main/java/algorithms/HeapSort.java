@@ -27,7 +27,7 @@ public class HeapSort {
     private void maxHeapify(int index, int heap){
         int left = left(index);
         int right = right(index);
-        int largest = 0;
+        int largest;
         if (left<heap && arr[left] > arr[index]) {
             largest = left;
         } else {

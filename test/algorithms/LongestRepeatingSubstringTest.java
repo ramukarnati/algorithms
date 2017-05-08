@@ -5,8 +5,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.JUnit4;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by rkarnati on 4/14/17.
  */
@@ -14,9 +12,17 @@ import static org.junit.Assert.*;
 public class LongestRepeatingSubstringTest {
     @Test
     public void findLengthOfLongestRepeatingSubstring() throws Exception {
-        String s = "abcabcdef";
+        String s = "adefabeabc";
         LongestRepeatingSubstring lrs = new LongestRepeatingSubstring();
         Assert.assertEquals(lrs.findLengthOfLongestRepeatingSubstring(s), 3);
+
+    }
+
+    @Test
+    public void findLengthOfLongestRepeatingSubstringDP() throws Exception {
+        String s = "aaaaaa";
+        LongestRepeatingSubstring lrs = new LongestRepeatingSubstring();
+        Assert.assertEquals(lrs.findLengthOfLongestRepeatingSubstringDP(s), 4);
 
     }
 

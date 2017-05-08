@@ -3,8 +3,6 @@ package algorithms;
 import org.junit.Assert;
 import org.junit.Test;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by rkarnati on 4/16/17.
  */

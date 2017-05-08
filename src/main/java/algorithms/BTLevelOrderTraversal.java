@@ -22,7 +22,6 @@ public class BTLevelOrderTraversal {
         queue.add(root);
 
         while (queue.size() != 0) {
-
             curr = queue.remove();
             if (levelChildren != 0){
                 levelOrder.add(curr.val);
